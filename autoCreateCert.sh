@@ -27,7 +27,7 @@ server {
         proxy_pass http://odoo:8069;
         add_header Content-Security-Policy upgrade-insecure-requests;
     }
-}" | sudo tee -a /home/ubuntu/multitenant/config/nginx/default.conf
+}" | sudo tee -a /home/ubuntu/get2knowodoo/config/nginx/default.conf
 
 
 echo 'reload nginx'
