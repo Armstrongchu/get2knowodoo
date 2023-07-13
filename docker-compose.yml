@@ -35,6 +35,9 @@ services:
       - 443:443
     volumes:
       - ./config/nginx/:/etc/nginx/conf.d/
+      - ./config/certbot:/etc/letsencrypt
+      - ./config/certbot/www:/var/www/certbot
+    command: "/bin/bash -c 'apt-get update && apt-get install -y certbot && apt-get install -y python3-certbot-nginx && nginx -g \"daemon off;\"'"
 volumes:
   odoo-web-data:
   odoo-db-data:
