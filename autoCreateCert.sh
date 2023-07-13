@@ -1,10 +1,20 @@
 #!/bin/bash
 container=odoo_proxy
+domain=$1
+email=$2
+
+if [ -z "$domain" ]; then
 read -p "Enter the domain name: " domain
+fi
+
+if [ -z "$email" ]; then
+read -p "Enter the email name: " email
+fi
+
 
 
 echo 'register certificate'
-docker exec -it "$container" certbot --nginx -d "$domain"
+docker exec -it "$container" certbot --nginx --agree-tos --email "$email" -d "$domain"
 
 echo "server {
     listen 80;
