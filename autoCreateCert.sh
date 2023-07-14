@@ -4,11 +4,11 @@ domain=$1
 email=$2
 
 if [ -z "$domain" ]; then
-read -p "Enter the domain name: " domain
+read -rp "Enter the domain name: " domain
 fi
 
 if [ -z "$email" ]; then
-read -p "Enter the email name: " email
+read -rp "Enter the email name: " email
 fi
 
 
@@ -56,7 +56,7 @@ if [ -f "/etc/letsencrypt/live/$domain/fullchain.pem" ] && [ -f "/etc/letsencryp
 
     echo 'reload nginx'
 
-    docker exec "$container" nginx -s reload
+    sudo docker exec "$container" nginx -s reload
 
 else
     echo "SSL certificate does not exist. Skipping Nginx configuration."
