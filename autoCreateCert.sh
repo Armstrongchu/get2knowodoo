@@ -16,7 +16,7 @@ fi
 echo 'register certificate'
 sudo docker exec -it "$container" certbot --nginx --agree-tos --email "$email" -d "$domain"
 
-if [ -f "/etc/letsencrypt/live"]; then
+if [ -f "/home/ubuntu/get2knowOdoo/config/certbot/live" ]; then
 
     sudo chmod +r /home/ubuntu/get2knowOdoo/config/certbot/live
 
