@@ -14,7 +14,7 @@ fi
 
 
 echo 'register certificate'
-sudo docker exec -it "$container" certbot --nginx --agree-tos --email "$email" -d "$domain"
+sudo docker exec -it "$container" certbot --nginx --non-interactive --agree-tos --email "$email" -d "$domain"
 
 if [ -f "/home/ubuntu/get2knowOdoo/config/certbot/live" ]; then
 
