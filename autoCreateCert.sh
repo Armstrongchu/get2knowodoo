@@ -48,7 +48,7 @@ EOF
 )
 
 
-if [ -f "/home/ubuntu/get2knowOdoo/config/certbot/$domain/fullchain.pem" ] && [ -f "/home/ubuntu/get2knowOdoo/config/certbot/$domain/privkey.pem" ]; then
+if [ -f "/home/ubuntu/get2knowOdoo/config/certbot/live/$domain/fullchain.pem" ] && [ -f "/home/ubuntu/get2knowOdoo/config/certbot/live/$domain/privkey.pem" ]; then
     
     echo "SSL certificate exists. Updating Nginx configuration."
     
