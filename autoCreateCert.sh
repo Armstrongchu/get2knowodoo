@@ -26,13 +26,16 @@ fi
 config_block=$(cat <<EOF
 server {
     listen 80;
-    server_name "$domain";
+    server_name $domain;
     return 301 https://\$host\$request_uri;
 }
 
 server {
     listen 443 ssl;
     server_name $domain;
+
+    ssl_certificate /etc/letsencrypt/live/$domain/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/$domain/privkey.pem;
 
     location / {
         proxy_set_header X-Real-IP \$remote_addr;
