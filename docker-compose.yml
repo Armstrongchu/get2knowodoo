@@ -1,6 +1,7 @@
 version: '3.1'
 services:
   odoo:
+    container_name: odoo
     image: odoo:16.0
     depends_on:
       - db
@@ -14,6 +15,7 @@ services:
       - ./odoo-custom-addons:/mnt/extra-addons
       - ./config/odoo:/etc/odoo
   db:
+    container_name: odoo_db
     image: postgres:15
     networks:
       - my-network
@@ -40,7 +42,6 @@ services:
     command: "/bin/bash -c 'apt-get update && apt-get install -y certbot && apt-get install -y python3-certbot-nginx && nginx -g \"daemon off;\"'"
 volumes:
   odoo-web-data:
-  odoo-db-data:
-  odoo-custom-addons:
+  odoo-db-data:  
 networks:
   my-network:
