@@ -3,6 +3,7 @@ container=odoo_proxy
 domain=$1
 email=$2
 # test if $domain and $email have a value
+
 if [ -z "$domain" ]; then
 read -rp "Enter the domain name: " domain
 fi
